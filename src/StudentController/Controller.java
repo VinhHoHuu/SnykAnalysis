@@ -26,16 +26,15 @@ public class Controller extends ArrayList<Student>{
             return;
         }else{
             int id = 0;
-            while (true) {
+            do {
                 try {
                     System.out.print("Enter id: ");
                     id = Integer.parseInt(sc.nextLine());
+                    break;
                 } catch (NumberFormatException e) {
                     System.out.println("Invalid input!");
-                    continue;
                 }
-                break;
-            }
+            } while (true);
             Student victim = findStudentById(id);
             if (victim == null) {
                 System.out.println("Information not found!");

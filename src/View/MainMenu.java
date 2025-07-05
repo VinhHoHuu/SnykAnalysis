@@ -10,22 +10,8 @@ public class MainMenu {
     public void menu(){
         int choice = 0;
         do {
-            System.out.println("======Student Management======");
-            System.out.println("1. Add a student");
-            System.out.println("2. Delete a student");
-            System.out.println("3. Search for a student");
-            System.out.println("4. Display all students");
-            System.out.println("5. Exit");
-            
-            try {
-                System.out.print("Enter choice (1- 5): ");
-                choice = Integer.parseInt(sc.nextLine());
-                if (choice < 1 || choice > 5) {
-                    System.out.println("Choice must be between 1 and 5.");
-                }
-            } catch (NumberFormatException e) {
-                System.out.println("Invalid Input");
-            }
+            PrintMenu();
+            choice = choice();
             
             switch (choice){
                 case 1:
@@ -49,4 +35,30 @@ public class MainMenu {
             }
         } while (choice != 5);
     }
+    
+    private void PrintMenu(){
+        System.out.println("======Student Management======");
+        System.out.println("1. Add a student");
+        System.out.println("2. Delete a student");
+        System.out.println("3. Search for a student");
+        System.out.println("4. Display all students");
+        System.out.println("5. Exit");
+    }
+    
+    private int choice(){
+        int choice = 0;
+        try {
+                System.out.print("Enter choice (1- 5): ");
+                choice = Integer.parseInt(sc.nextLine());
+                if (choice < 1 || choice > 5) {
+                    System.out.println("Choice must be between 1 and 5.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid Input");
+            }
+        return choice;
+    }
+    
+    
+    
 }
